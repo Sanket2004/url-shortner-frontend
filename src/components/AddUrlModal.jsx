@@ -39,7 +39,7 @@ function AddUrlModal({ fetchAllUrls }) {
             <Toaster position='top-center'/>
             {/* Open and Close button */}
             <div className="fixed top-0 left-0 w-full h-full bg-black opacity-50 z-50 transition-opacity duration-300" style={{ display: formOpen ? 'block' : 'none' }} onClick={toggleForm}></div>
-            <div className={`fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-zinc-50 p-8 max-w-screen-xl rounded-lg w-[90%] max-w-[30rem] z-50 ${formOpen ? 'block' : 'hidden'}`}>
+            <div className={`fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-zinc-50 p-8 rounded-lg w-[90%] max-w-[30rem] z-50 ${formOpen ? 'block' : 'hidden'}`}>
                 <button className="absolute top-3 right-3 text-gray-600 hover:text-black focus:outline-none" onClick={toggleForm}>
                     <i className="ri-close-line text-lg"></i>
                 </button>
