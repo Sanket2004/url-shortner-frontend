@@ -39,7 +39,7 @@ function UrlPage() {
       <>
         <Toaster position='top-center' />
         <section className="bg-white min-h-screen">
-          <div className="min-h-screen items-center py-8 px-8 mx-auto max-w-screen-xl lg:py-8 lg:px-8">
+          <div className="min-h-screen items-center py-8 px-6 mx-auto max-w-screen-xl lg:py-8 lg:px-8">
             <div className="flex flex-row gap-2">
               <Link to={'/'}>
                 <i className="text-2xl font-bold ri-link"></i>

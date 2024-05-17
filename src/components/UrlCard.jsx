@@ -7,7 +7,7 @@ function UrlCard({ url }) {
 
     const copyToClipboard = () => {
         const textToCopy = 'https://short-url-9lz6.onrender.com/' + url.short;
-        
+
         // Disable the copy button
         setIsCopyDisabled(true);
 
@@ -28,12 +28,17 @@ function UrlCard({ url }) {
             });
     };
 
+    const faviconUrl = `https://www.google.com/s2/favicons?sz=64&domain_url=${url.full}`;
+
     return (
         <div className="p-6 bg-white border border-gray-200 rounded-lg shadow hover:scale-[1.02] transition-all relative">
             <i className={`ri-file-copy-2-line absolute right-5 top-5 cursor-pointer ${isCopyDisabled ? 'opacity-50 pointer-events-none cursor-not-allowed' : ''}`} onClick={copyToClipboard}></i>
-            <Link to={'https://short-url-9lz6.onrender.com/' + url.short} target='_blank' className='w-max block'>
-                <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 hover:underline w-max block">{url.short}</h5>
-            </Link>
+            <div className="flex flex-row items-center gap-2">
+                {faviconUrl && <img src={faviconUrl} alt="Website logo" className="w-6 h-6 mb-2" />}
+                <Link to={'https://short-url-9lz6.onrender.com/' + url.short} target='_blank' className='w-max block'>
+                    <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 hover:underline w-max block">{url.short}</h5>
+                </Link>
+            </div>
             <p className="mb-1 font-normal text-gray-700" style={{ lineBreak: "anywhere" }}><i className="ri-external-link-line" /> {url.clicks}</p>
             <p className="mb-1 font-normal text-gray-700" style={{ lineBreak: "anywhere" }}><i className="ri-link" /> {url.full}</p>
             <p className="mb-1 font-normal text-gray-700" style={{ lineBreak: "anywhere" }}><i className="ri-calendar-2-line" /> {new Date(url.createdAt).toLocaleString()}</p>
