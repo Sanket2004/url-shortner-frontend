@@ -14,25 +14,33 @@ function AddUrlModal({ fetchAllUrls }) {
 
     async function addNewUrl() {
         try {
-            const response = await fetch('https://short-url-9lz6.onrender.com/api/shortUrls', {
+            const response = await fetch('https://tinypath.onrender.com/api/shortUrls', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ fullUrl, creator }),
             });
-            if (!response.ok) {
+            
+            if (response.ok) {
+                const data = await response.json();
+                if (data.short) {
+                    toast.error('URL already shortened');
+                    return;
+                }
+                toast.success('URL Added Successfully!');
+                await fetchAllUrls(); // Refresh URL list after adding a new URL
+                setFullUrl('');
+                setCreator('');
+            } else {
                 throw new Error('Failed to add URL');
             }
-            toast.success('URL Added Sucessfully !');
-            await fetchAllUrls(); // Refresh URL list after adding a new URL
-            setFullUrl('');
-            setCreator('');
         } catch (error) {
             console.error('Error adding URL:', error.message);
             toast.error('Error adding URL:', error.message);
         }
     }
+    
 
     return (
         <>

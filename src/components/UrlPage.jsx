@@ -17,7 +17,7 @@ function UrlPage() {
   async function fetchAllUrls() {
     setLoading(true);
     try {
-      const response = await fetch('https://short-url-9lz6.onrender.com/api/shortUrls/all');
+      const response = await fetch('https://tinypath.onrender.com/api/shortUrls/all');
       if (!response.ok) {
         throw new Error('Failed to fetch URLs');
       }
