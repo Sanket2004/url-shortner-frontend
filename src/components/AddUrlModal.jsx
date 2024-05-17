@@ -10,6 +10,8 @@ function AddUrlModal({ fetchAllUrls }) {
         setFormOpen(!formOpen);
         // Disable body scrolling when the form is open
         document.body.style.overflow = formOpen ? 'auto' : 'hidden';
+        setFullUrl('');
+        setCreator('');
     };
 
     async function addNewUrl() {
